@@ -78,13 +78,12 @@ async def on_message(message):
     if "doge" in msg:
         if "are you okay" in msg:
             await message.channel.send("Yes master, I am fine")
+        elif "source code" in msg:
+            await message.channel.send("https://github.com/SuperComputer29/Disbot/blob/main/Disbot.py")
         else:
             for word in Bot_greetings_1:
                 if word in msg:
                     await message.channel.send(random.choice(Doge_greetings))
-    if "doge" in msg:
-        if "source code" in msg:
-            await message.channel.send()
 
 
 keep_alive()

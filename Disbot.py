@@ -1,5 +1,7 @@
 import discord
 import random
+import math
+from random import randrange
 from keep_me_alive import keep_alive
 
 client = discord.Client()
@@ -40,6 +42,35 @@ SunTzuQuotes = ["Be extremely subtle, even to the point of formlessness",
                 "All war is deception",
                 "don't believe everything a bot says"]
 ROB_greetings = ["Hello Wide Putin", "How u doin?", "I am kim jong un", "trump is better than u", ]
+hurt = ["poop",
+        "dung",
+        "rotten"
+        ]
+
+
+def sqrt(n):
+    a = randrange(10)
+    for i in range(500):
+        a = (n + a ** 2) / (2 * a)
+    return a
+
+
+def factorial(n: int) -> int:
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+def sum(a, b):
+    if a > b:
+        return 0
+    else:
+        return b + sum(a, b - 1)
+
+
+CommonOperations = ["+", "-", "*", "/"]
+rad = math.pi / 180
 
 
 @client.event
@@ -55,16 +86,11 @@ async def on_message(message):
     for word in Bot_greetings_2:
         if word in msg:
             await message.channel.send(random.choice(Doge_happy))
+    for word in hurt:
+        if word in msg:
+            await message.channel.send(":SHUT:")
     if msg.startswith(',suntzu quote'):
         await message.channel.send(random.choice(SunTzuQuotes))
-    if msg.startswith(",w"):
-        a = msg.split()
-        question = ' '.join(a[1:])
-        app_id = "G8A6RW-HKU2XLX97K"
-        k = wolframalpha.Client(app_id)
-        res = k.query(question)
-        answer = next(res.results).text
-        await message.channel.send(answer)
     if "inspirational" in msg:
         await message.channel.send(random.choice(happy_messages))
     if "wish wide putin" in msg:
@@ -84,7 +110,26 @@ async def on_message(message):
             for word in Bot_greetings_1:
                 if word in msg:
                     await message.channel.send(random.choice(Doge_greetings))
+    if "sqrt" in msg:
+        a = msg.split("(")
+        b = a[1]
+        c = b.split(")")
+        d = int(c[0])
+        sqrt(d)
+    if "!" in msg:
+        a = msg.split("!")
+        b = a[0]
+        factorial(b)
+    if "sum" in msg:
+        if ",w" in msg:
+            s = msg.split()
+            a = int(s[2])
+            b = int(s[4])
+            sum(a, b)
+            await message.channel.send(print(sum(a, b)))
 
 
 keep_alive()
-client.run(token)
+client.run("token")
+
+# good luck finding that token :)

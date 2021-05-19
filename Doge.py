@@ -1,8 +1,10 @@
 import discord
 import random
 import math
+import os
 from random import randrange
 from keep_me_alive import keep_alive
+
 
 client = discord.Client()
 
@@ -88,7 +90,8 @@ async def on_message(message):
             await message.channel.send(random.choice(Doge_happy))
     for word in hurt:
         if word in msg:
-            await message.channel.send(":SHUT:")
+            for i in range(5):
+              await message.channel.send("<:SHUT:823226874770751498>")
     if msg.startswith(',suntzu quote'):
         await message.channel.send(random.choice(SunTzuQuotes))
     if "inspirational" in msg:
@@ -121,15 +124,14 @@ async def on_message(message):
         b = a[0]
         factorial(b)
     if "sum" in msg:
-        if ",w" in msg:
+        if ",w" not in msg:
             s = msg.split()
             a = int(s[2])
             b = int(s[4])
-            sum(a, b)
-            await message.channel.send(print(sum(a, b)))
-
+            await message.channel.send(sum(a, b))
 
 keep_alive()
-client.run("token")
+token = os.environ['key']
+client.run(token)
 
 # good luck finding that token :)

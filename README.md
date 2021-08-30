@@ -1,4 +1,4 @@
-# Disbot
+# Disbot(old)
 Source code of doge boi™
 
 If you are here you are probably here from our server if not I'll tell you what it is

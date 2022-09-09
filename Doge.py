@@ -129,6 +129,8 @@ async def on_message(message):
             a = int(s[2])
             b = int(s[4])
             await message.channel.send(sum(a, b))
+    if "status" in msg:
+        await message.channel.send("Sire my dev is on wsl rn😎")
 
 keep_alive()
 token = os.environ['key']

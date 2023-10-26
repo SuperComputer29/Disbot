@@ -49,7 +49,7 @@ hurt = ["poop",
         "rotten"
         ]
 
-
+#newtonian method
 def sqrt(n):
     a = randrange(10)
     for i in range(500):
@@ -63,7 +63,7 @@ def factorial(n: int) -> int:
     else:
         return n * factorial(n - 1)
 
-
+#summation, as it the greek capital letter
 def sum(a, b):
     if a > b:
         return 0
